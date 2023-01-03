@@ -15,7 +15,7 @@ class AppLogoWidget extends StatelessWidget {
            Text(
             "Hello \nThere",
             style: TextStyle(
-              fontSize: ScreenHandler.getScreenHeight(context)/10.5,
+              fontSize: ScreenHandler.getScreenHeight(context)/14,
               fontWeight: FontWeight.bold,
               height: 0.9,
               color: Colors.white,
