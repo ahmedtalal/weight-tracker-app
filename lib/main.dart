@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weight_tracker_task/app/presentation/routes/app_pages.dart';
 import 'package:weight_tracker_task/app/presentation/routes/app_routes.dart';
+import 'package:weight_tracker_task/app/presentation/screens/auth/logic/getx/auth_controller.dart';
 import 'package:weight_tracker_task/firebase_options.dart';
 
 void main() async {
@@ -16,10 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splashScreenRoute,
-      getPages: AppPages.pages,
+    return GetBuilder<AuthController>(
+      init: AuthController.instance,
+      builder: (controller) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          initialRoute:controller.onClickUserIsLogin(),
+          getPages: AppPages.pages,
+        );
+      }
     );
   }
 }
